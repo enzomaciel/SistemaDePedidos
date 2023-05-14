@@ -9,31 +9,31 @@ def criarBanco():
                                     id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
                                     nome TEXT,
                                     telefone INTEGER,
-                                    endereco TEXT)''')
+                                    email TEXT)''')
     cursor.fetchall()
     conexao.commit()
     cursor.close()
     conexao.close()
 
-def adicionar_pessoas(nome,telefone,endereco):
-    conexao = conector.connect(caminhodb)
-    cursor = conexao.cursor()
-    comando = '''INSERT INTO cliente (nome,telefone,endereco)
-                      VALUES (:nome,:idade,:endereco);'''
-    cursor.execute(comando, {
-        "nome":nome,
-        "idade":telefone,
-        "endereco":endereco
-    })
-    conexao.commit()
-    cursor.close()
-    conexao.close()
-    print("cliente cadastrado com sucesso")
+def cadastrarCliente(nome,telefone,email):
+        conexao = conector.connect(caminhodb)
+        cursor = conexao.cursor()
+        comando = '''INSERT INTO cliente (nome,telefone,email)
+                      VALUES (:nome,:idade,:email);'''
+        cursor.execute(comando, {
+            "nome":nome,
+            "idade":telefone,
+            "email":email
+        })
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+        print("cliente cadastrado com sucesso")
 
-def ver_pessoas():
+def ver_clientes():
     conexao = conector.connect(caminhodb)
     cursor = conexao.cursor()
-    cursor.execute('''SELECT * FROM faculdade''')
+    cursor.execute('''SELECT * FROM cliente''')
     conexao.commit()
     for linha in cursor.fetchall():
         print(linha)
@@ -42,17 +42,17 @@ def ver_pessoas():
 def atualizar_idade(nome, idade):
     conexao = conector.connect(caminhodb)
     cursor = conexao.cursor()
-    comando = ('''UPDATE faculdade SET idade = ? WHERE nome = ?''',(idade,nome))
+    comando = ('''UPDATE cliente SET idade = ? WHERE nome = ?''',(idade,nome))
     cursor.execute(comando)
     conexao.commit()
     cursor.close()
     conexao.close()
     print("Atualizado idade com sucesso")
 
-def remove_pessoa(nome):
+def remove_cliente(nome):
     conexao = conector.connect(caminhodb)
     cursor = conexao.cursor()
-    comando = '''DELETE FROM faculdade WHERE nome=:nome'''
+    comando = '''DELETE FROM cliente WHERE nome=:nome'''
     cursor.execute(comando, {
         "nome":nome
     })

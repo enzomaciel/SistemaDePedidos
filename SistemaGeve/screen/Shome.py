@@ -31,7 +31,7 @@ def telaInicial():
     h1 = Label(home, font="arial, 20" ,text="SISTEMA GEVE", foreground='#FFFFFF', background='#880000' )
     h1.place(x=188,y=80)
 
-    btn_cadastrarCliente = Button(home, width=20, text="Cadastrar Cliente",command=btn_cadastrarCliente_onclick)
+    btn_cadastrarCliente = Button(home, width=20, text="Cadastrar Cliente",command=btn_cadastrarCliente_onclick, relief="solid")
     btn_cadastrarCliente.place(x=220,y=140)
 
     btn_cadastrarProduto = Button(home, width=20, text="Cadastro de Produto", command=btn_cadastrarProduto_onclick)

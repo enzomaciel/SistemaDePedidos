@@ -14,11 +14,7 @@ def telaCadastroCliente():
         hm.telaInicial()
 
     def btn_cadastrarCliente_onclick():
-        print(nome + telefone + endereco)
-        print("Cadastro de cliente")
-
-    
-
+        c.cadastrarCliente(nome.get(), telefone.get(), email.get())
     
     h1 = Label(home, font="arial, 20" ,text="CADASTRO DE CLIENTE", foreground='#FFFFFF', background='#880000')
     h1.place(x=150,y=40)
@@ -26,21 +22,21 @@ def telaCadastroCliente():
     #Pegando o nome do Cliente
     nomeLabel = Label(home, font="arial, 10",bg='#880000',fg='#FFFFFF', text="Digite o nome do Cliente")
     nomeLabel.place(x=188,y=100)
-    nome = Entry(home, width=40, text="Digite o nome do Cliente")
+    nome = Entry(home, width=40)
     nome.place(x=188,y=125)
 
     #Pegando o telefone do Cliente
     telefoneLabel = Label(home, font="arial, 10",bg='#880000',fg='#FFFFFF', text="Digite o telefone do cliente")
     telefoneLabel.place(x=188,y=150)
-    telefone = Entry(home, width=40, text="Digite o numero do cliente")
+    telefone = Entry(home, width=40)
     telefone.place(x=188,y=175)
 
     #pegando o endereço do Cliente
 
-    enderecoLabel = Label(home, font="arial, 10", bg='#880000', fg='#FFFFFF', text="Digite o endereço do cliente")
-    enderecoLabel.place(x=188, y=200)
-    endereco = Entry(home, width=40, text="Digite o endereço do cliente")
-    endereco.place(x=188,y=225)
+    emailLabel = Label(home, font="arial, 10", bg='#880000', fg='#FFFFFF', text="Digite o email do cliente")
+    emailLabel.place(x=188, y=200)
+    email = Entry(home, width=40)
+    email.place(x=188,y=225)
 
 
     btn_cadastrarCliente = Button(home, width=10, font="arial, 10", bg='#FFFFFF', fg='#990000', text="Cadastrar",command=btn_cadastrarCliente_onclick)
