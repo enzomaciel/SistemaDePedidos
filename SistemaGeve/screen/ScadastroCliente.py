@@ -1,5 +1,6 @@
 from tkinter import * 
 from screen import Shome as hm
+from scriptDB import crubClientes as c
 
 
 
@@ -13,6 +14,7 @@ def telaCadastroCliente():
         hm.telaInicial()
 
     def btn_cadastrarCliente_onclick():
+        print(nome + telefone + endereco)
         print("Cadastro de cliente")
 
     
@@ -46,6 +48,7 @@ def telaCadastroCliente():
 
     btn_cancelar = Button(home, width=10, font="arial, 10", bg='#990000', fg='#FFFFFF', text="cancelar",command=btn_irparahome_onclick)
     btn_cancelar.place(x=188,y=265)
+    
 
 
     #dimensoes da janela

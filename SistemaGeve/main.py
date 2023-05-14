@@ -1,9 +1,9 @@
-from scriptDB import crubClientes as c
+from scriptDB import crubClientes as cc
 from screen import Shome as home
 import os
 
 home.telaInicial()
-c.criarBanco()
+cc.criarBanco()
 
 
 

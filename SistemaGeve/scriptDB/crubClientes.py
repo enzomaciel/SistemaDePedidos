@@ -1,32 +1,34 @@
 import sqlite3 as conector
 
-caminhodb = "SistemaGeve\\db\\clientes.db"
+caminhodb = "db\\geve.db"
 
 def criarBanco():
     conexao = conector.connect(caminhodb)
     cursor = conexao.cursor()
-    cursor.execute('''CREATE TABLE IF NOT EXISTS faculdade(
-                                    id_aluno INTEGER PRIMARY KEY AUTOINCREMENT,
+    cursor.execute('''CREATE TABLE IF NOT EXISTS cliente(
+                                    id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
                                     nome TEXT,
-                                    idade INTEGER)''')
+                                    telefone INTEGER,
+                                    endereco TEXT)''')
     cursor.fetchall()
     conexao.commit()
     cursor.close()
     conexao.close()
 
-def adicionar_pessoas(nome, idade):
+def adicionar_pessoas(nome,telefone,endereco):
     conexao = conector.connect(caminhodb)
     cursor = conexao.cursor()
-    comando = '''INSERT INTO faculdade (nome,idade)
-                      VALUES (:nome,:idade);'''
+    comando = '''INSERT INTO cliente (nome,telefone,endereco)
+                      VALUES (:nome,:idade,:endereco);'''
     cursor.execute(comando, {
         "nome":nome,
-        "idade":idade
+        "idade":telefone,
+        "endereco":endereco
     })
     conexao.commit()
     cursor.close()
     conexao.close()
-    print("pessoa cadastrada com sucesso")
+    print("cliente cadastrado com sucesso")
 
 def ver_pessoas():
     conexao = conector.connect(caminhodb)
@@ -58,12 +60,3 @@ def remove_pessoa(nome):
     cursor.close()
     conexao.close()
     print("Pessoa removida com sucesso")
-
-def menu():
-    print("===========Menu===========")
-    print("1- adicionar pessoas")
-    print("2- listar pessoas")
-    print("3- atualizar a idade da Pessoa")
-    print("4- excluir pessoa")
-    print("0 - sair")
-
