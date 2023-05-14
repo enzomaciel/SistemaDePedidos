@@ -1,12 +1,18 @@
 from tkinter import * 
+from screen import Shome as hm
+from scriptDB import crubProdutos as c
 def telaCadastroProduto():
-    #Evento de button 
-    def btn_cadastrarProduto_onclick():
-        print("Cadastro de cliente")
-
 
     #iniciando tela
     home  = Tk()
+
+    def btn_irparahome_onclick():
+        home.destroy()
+        hm.telaInicial()
+
+    #Evento de button 
+    def btn_cadastrarProduto_onclick():
+        c.cadastrarProduto(nome.get(),unidade.get(),valor.get(),comissao.get())
 
     h1 = Label(home, font="arial, 20" ,text="CADASTRO DE PRODUTO", foreground='#FFFFFF', background='#880000')
     h1.place(x=150,y=40)
@@ -38,8 +44,11 @@ def telaCadastroProduto():
     comissao.place(x=188,y=275)
 
 
-    btn_cadastrarProduto = Button(home, width=20, font="arial, 13", bg='#990000', fg='#FFFFFF', text="Cadastrar produto",command=btn_cadastrarProduto_onclick)
-    btn_cadastrarProduto.place(x=210,y=300)
+    btn_cadastrarProduto = Button(home, width=10, font="arial, 10", bg='#FFFFFF', fg='#990000', text="Cadastrar",command=btn_cadastrarProduto_onclick)
+    btn_cadastrarProduto.place(x=340,y=300)
+
+    btn_cancelar = Button(home, width=10, font="arial, 10", bg='#990000', fg='#FFFFFF', text="Cancelar",command=btn_irparahome_onclick)
+    btn_cancelar.place(x=188,y=300)
 
 
     #dimensoes da janela
