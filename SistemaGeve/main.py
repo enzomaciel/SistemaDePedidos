@@ -1,10 +1,10 @@
 from scriptDB import crubBanco as cb
 
-from screen import Shome as home
+from screen import Slogin as login
 import os
 
 cb.criarBanco()
-home.telaInicial()
+login.telaLogin()
 
 
 

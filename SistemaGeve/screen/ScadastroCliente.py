@@ -8,7 +8,7 @@ def telaCadastroCliente():
     #iniciando tela
     home  = Tk()
 
-    #Evento de button 
+    #Evento de button
     def btn_irparahome_onclick():
         home.destroy()
         hm.telaInicial()

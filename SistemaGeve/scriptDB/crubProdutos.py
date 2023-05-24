@@ -2,21 +2,6 @@ import sqlite3 as conector
 
 caminhodb = "db\\geve.db"
 
-def criarBanco():
-    conexao = conector.connect(caminhodb)
-    cursor = conexao.cursor()
-    cursor.execute('''CREATE TABLE IF NOT EXISTS produto(
-                                    id_product INTEGER PRIMARY KEY AUTOINCREMENT,
-                                    name_product TEXT,
-                                    unidade TEXT,
-                                    valor REAL,
-                                    comissao REAL)''')
-    
-    cursor.fetchall()
-    conexao.commit()
-    cursor.close()
-    conexao.close()
-
 def cadastrarProduto(nome,unidade,valor,comissao):
         conexao = conector.connect(caminhodb)
         cursor = conexao.cursor()

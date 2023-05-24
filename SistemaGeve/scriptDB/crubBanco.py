@@ -5,6 +5,16 @@ caminhodb = "db\\geve.db"
 def criarBanco():
     conexao = conector.connect(caminhodb)
     cursor = conexao.cursor()
+    cursor.execute('''CREATE TABLE IF NOT EXISTS usuario(
+                                    id_user INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    name TEXT,
+                                    username TEXT,
+                                    password TEXT,
+                                    email TEXT,
+                                    aniversario DATA,
+                                    cpf TEXT)''')
+    
+    cursor.fetchall()
     cursor.execute('''CREATE TABLE IF NOT EXISTS cliente(
                                     id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
                                     nome TEXT,
