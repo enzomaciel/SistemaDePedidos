@@ -30,22 +30,7 @@ def relatorioPedidos():
         nome_cliente = aux2[1]
         relatorioPedido = "N.Pedido= "+str(num_pedido)+ "   "+ "Cliente: "+nome_cliente
         lbNumPedido.config(text=relatorioPedido)
-        aux4 = crubPedidosProdutos.selecionarUltimoProduto()[0]
-        for j in range(aux4):
-            lbNumPedido2 = Label(home, font=("Microsoft YaHei UI Light",10,"bold"), foreground='#F8F8F8', background='#4A00FF')
-            aux3 = crubPedidosProdutos.ver_num_prodPedido(j,i)
-            num_pedido2 = aux3[1]
-            produto = aux3[2]
-            quantidade = aux3[4]
-            valor = aux3[5]
-            total = aux3[6]
-            relatorioPedido2 = "N.Pedido= "+num_pedido2+ "   "+ "Produto= "+produto +"   "+ "Quantidade= "+quantidade+ "   "+ "valor= "+valor+"   "+"Total= "+total
-            lbNumPedido2.config(text=relatorioPedido2)
-            nrow = (120+i*20)
-            lbNumPedido.place(x=40, y=nrow)
-
-
-        nrow = (100+i*40)
+        nrow = (100+i*20)
         lbNumPedido.place(x=10, y=nrow)
 
     

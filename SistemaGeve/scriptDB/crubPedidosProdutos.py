@@ -21,12 +21,11 @@ def cadastrarProdutoPedido(num_pedido,produto,emissao,quantidade,valor,total):
 def ver_num_prodPedido(i,num_pedido):
     conexao = conector.connect(caminhodb)
     cursor = conexao.cursor()
-    comando = '''SELECT * FROM produtopedido WHERE num_pedido=:num_pedido'''
-    cursor.execute(comando, {
-        "num_pedido":num_pedido
-    })
+    cursor.execute('''SELECT * FROM produtopedido  WHERE num_pedido = ?''',num_pedido)
     conexao.commit()
-    linha = cursor.fetchall()[i]
+    print(i)
+    print(num_pedido)
+    linha = cursor.fetchall()
     cursor.close()
     conexao.close()
     return linha

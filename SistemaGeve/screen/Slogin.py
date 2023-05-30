@@ -1,7 +1,7 @@
 from tkinter import * 
 from scriptDB import crubLogin as cl
 from screen import Shome as h
-
+import re
 
 def telaLogin():
     #iniciando tela
@@ -37,10 +37,12 @@ def telaLogin():
 
     #Insert UserName
     def on_key_press(e):
+        padrao = r'[a-z0-9\s]'
         name = entryUsername.get()
         name = name.lower()
+        name_form = re.sub(padrao,'',name)
         entryUsername.delete(0, 'end')
-        entryUsername.insert(0,name)
+        entryUsername.insert(0,name_form)
 
     labelUsername = Label(frameLeftInt, width=10, bg="#4A00FF",fg="#F8F8F8", text="Username:", border=0,font=("Microsoft YaHei UI Light",12))
     labelUsername.place(x=21, y=130)
@@ -63,6 +65,7 @@ def telaLogin():
     def on_key_press(e):
         name = entryMail.get()
         name = name.lower()
+
         entryMail.delete(0, 'end')
         entryMail.insert(0,name)
 
@@ -89,10 +92,12 @@ def telaLogin():
 
     #Insert CPF
     def on_key_press(e):
+        padrao = r'[0-9\s]'
         name = entryCPF.get()
         name = name.lower()
+        name_form = re.sub(padrao,'',name)
         entryCPF.delete(0, 'end')
-        entryCPF.insert(0,name)
+        entryCPF.insert(0,name_form)
 
     labelCPF = Label(frameLeftInt, width=8, bg="#4A00FF",fg="#F8F8F8", text="CPF:", border=0,font=("Microsoft YaHei UI Light",12))
     labelCPF.place(x=50, y=290)
@@ -154,7 +159,7 @@ def telaLogin():
         if password=='':
            entrySenha.insert(0,'Password') 
 
-    entrySenha = Entry(frameRightInt, width=27, bg="#F8F8F8", fg="#4A00FF",border=0,font=("Microsoft YaHei UI Light",11))
+    entrySenha = Entry(frameRightInt, width=27, bg="#F8F8F8", fg="#4A00FF",border=0,font=("Microsoft YaHei UI Light",11),show="*")
     entrySenha.place(x=40, y=170)
     entrySenha.insert(0,"Password")
     entrySenha.bind('<FocusIn>', on_enter)

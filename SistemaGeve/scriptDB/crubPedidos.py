@@ -20,7 +20,7 @@ def cadastrarPedido(name_cliente,prazo,emissao,subtotal):
 def selecionarUltimoPedido():
     conexao = conector.connect(caminhodb)
     cursor = conexao.cursor()
-    cursor.execute('''SELECT id FROM produtopedido ORDER BY id DESC LIMIT 1''')
+    cursor.execute('''SELECT id_pedido FROM pedido ORDER BY id_pedido DESC LIMIT 1''')
     conexao.commit()
     ultimo_valor = cursor.fetchall()[0]
     cursor.close()
