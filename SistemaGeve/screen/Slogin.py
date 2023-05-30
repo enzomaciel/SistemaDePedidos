@@ -29,7 +29,7 @@ def telaLogin():
     registerHeader = Label(frameLeftInt, text="Register Account",bg="#4a00ff", fg="#F8F8F8",font=("Microsoft YaHei UI Light",20,"bold"))
     registerHeader.place(x=30, y=20)
     #Insert Full Name
-    labelName = Label(frameLeftInt, width=10, bg="#4A00FF",fg="#F8F8F8", text="Username:", border=0,font=("Microsoft YaHei UI Light",12))
+    labelName = Label(frameLeftInt, width=10, bg="#4A00FF",fg="#F8F8F8", text="Full Name:", border=0,font=("Microsoft YaHei UI Light",12))
     labelName.place(x=21, y=90)
     entryName = Entry(frameLeftInt, width=18, bg="#4A00FF",fg="#F8F8F8", border=0,font=("Microsoft YaHei UI Light",11))
     entryName.place(x=110, y=90)
@@ -51,13 +51,10 @@ def telaLogin():
     #Insert Password
     def on_key_press(e):
         name = entryPassword.get()
-        name = name.lower()
-        entryPassword.delete(0, 'end')
-        entryPassword.insert(0,name)
 
     labelPassword = Label(frameLeftInt, width=10, bg="#4A00FF",fg="#F8F8F8", text="Password:", border=0,font=("Microsoft YaHei UI Light",12))
     labelPassword.place(x=21, y=170)
-    entryPassword = Entry(frameLeftInt, width=18, bg="#4A00FF",fg="#F8F8F8", border=0,font=("Microsoft YaHei UI Light",11))
+    entryPassword = Entry(frameLeftInt, width=18, bg="#4A00FF",fg="#F8F8F8", border=0,font=("Microsoft YaHei UI Light",11),show="*")
     entryPassword.place(x=110, y=170)
     entryPassword.bind('<KeyPress>', on_key_press)
     Frame(frameLeftInt, width=150,height=2, bg="black").place(x=110,y=190)
@@ -113,6 +110,9 @@ def telaLogin():
     buttonRegistrar.place(x=40, y=330)
 
     #lado direito >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    btn_fecharprograma = Button(home, width=5,border=0, bg="#4A00FF",fg="#F8F8F8", padx=2, pady=2, text="X", command=home.destroy)
+    btn_fecharprograma.place(x=550, y= 10)
+
     def signin():
         username = entryLogin.get()
         password = entrySenha.get()

@@ -21,12 +21,29 @@ def cadastrarProduto(nome,unidade,valor,comissao):
 def ver_produtos():
     conexao = conector.connect(caminhodb)
     cursor = conexao.cursor()
-    cursor.execute('''SELECT * FROM cliente''')
+    cursor.execute('''SELECT * FROM produto''')
     conexao.commit()
     for linha in cursor.fetchall():
         print(linha)
     cursor.close()
     conexao.close()
+
+def ver_nome_produtos(nome):
+    conexao = conector.connect(caminhodb)
+    cursor = conexao.cursor()
+    cursor.execute('''SELECT name_product FROM produto''')
+    conexao.commit()
+    for linha in cursor.fetchall():
+        if(linha[0] == nome):
+            cursor.close()
+            conexao.close()
+            return True
+    cursor.close()
+    conexao.close()    
+        
+   
+    
+     
 def atualizar_idade(nome, idade):
     conexao = conector.connect(caminhodb)
     cursor = conexao.cursor()

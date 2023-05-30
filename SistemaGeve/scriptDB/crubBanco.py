@@ -27,6 +27,22 @@ def criarBanco():
                                     unidade TEXT,
                                     valor REAL,
                                     comissao REAL)''')
+    cursor.fetchall()
+    cursor.execute('''CREATE TABLE IF NOT EXISTS pedido(
+                                    id_pedido INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    name_cliente TEXT,
+                                    prazo TEXT,
+                                    emissao DATA,
+                                    subtotal REAL)''')
+    cursor.fetchall()
+    cursor.execute('''CREATE TABLE IF NOT EXISTS produtopedido(
+                                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                    num_pedido INTEGER,
+                                    produto TEXT,
+                                    emissao DATA,
+                                    quantidade REAL,
+                                    valor REAL,
+                                    total REAL)''')
     
     cursor.fetchall()
     conexao.commit()
